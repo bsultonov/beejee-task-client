@@ -19,7 +19,7 @@ export const login = ({username, password}) => async dispatch => {
     }
 
     try{
-        const res = await axios.post('http://localhost:5000/login', JSON.stringify(admin), config);
+        const res = await axios.post('https://beejee-task-api.herokuapp.com/login', JSON.stringify(admin), config);
         dispatch(setAlert('Вы успешно вошли в систему', 'success'));
 
         dispatch({

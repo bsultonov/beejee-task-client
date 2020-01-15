@@ -13,7 +13,7 @@ const EditTask = (props) => {
 
     useEffect(() => {
         const fetchTask = async () => {
-            const res = await axios.get(`http://localhost:5000/edit/${taskId}`);
+            const res = await axios.get(`https://beejee-task-api.herokuapp.com/edit/${taskId}`);
             setTask(res.data);
             setInitText(res.data.text);
         }
@@ -38,7 +38,7 @@ const EditTask = (props) => {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
     }
-        axios.patch(`http://localhost:5000/edit/${taskId}`, { text: task.text, status: task.status, __v: (initText !== task.text ? 1 : 0) }, config).then(() => {
+        axios.patch(`https://beejee-task-api.herokuapp.com/edit/${taskId}`, { text: task.text, status: task.status, __v: (initText !== task.text ? 1 : 0) }, config).then(() => {
             props.setAlert('Задача успешно обновлена', 'success');
             props.history.push('/');
         }).catch((err) => {

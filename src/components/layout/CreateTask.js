@@ -32,7 +32,7 @@ const CreateTask = (props) => {
         }
 
         try{
-            const res = await axios.post('http://localhost:5000/create', JSON.stringify(task), config);
+            const res = await axios.post('https://beejee-task-api.herokuapp.com/create', JSON.stringify(task), config);
             if(res.data.status === 'ok'){
                 props.setAlert('Задача успешно добавлена', 'success');
                 props.history.push('/');

@@ -15,7 +15,7 @@ const Tasks = ({auth: {token}}) => {
     useEffect(() => {
         const fetchTasks = async () => {
             setLoading(true);
-            const res = await axios.get(`http://localhost:5000/?page=${currentPage}&&sortBy=${sortField}:${sortDirection}`);
+            const res = await axios.get(`https://beejee-task-api.herokuapp.com/?page=${currentPage}&&sortBy=${sortField}:${sortDirection}`);
             setTasks(res.data.message);
             setLoading(false);
         }
